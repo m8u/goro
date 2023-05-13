@@ -3,13 +3,11 @@ package model
 
 import (
 	"fmt"
-	golog "log"
-	"runtime/debug"
-
 	"github.com/aunum/gold/pkg/v1/track"
 	"github.com/aunum/log"
 	cgraph "github.com/m8u/goro/pkg/v1/common/graph"
 	"github.com/m8u/goro/pkg/v1/layer"
+	golog "log"
 
 	g "github.com/m8u/gorgonia"
 )
@@ -562,12 +560,6 @@ func (s *Sequential) FitBatch(x ValueOr, y g.Value) (err error) {
 		return
 	}
 
-	defer func() {
-		if r := recover(); r != nil {
-			log.Error(string(debug.Stack()))
-			err = fmt.Errorf("recovered from panic in FitBatch: %v", r)
-		}
-	}()
 	err = s.trainBatchVM.RunAll()
 	if err != nil {
 		return
