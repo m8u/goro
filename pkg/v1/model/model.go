@@ -4,6 +4,7 @@ package model
 import (
 	"fmt"
 	golog "log"
+	"runtime/debug"
 
 	"github.com/aunum/gold/pkg/v1/track"
 	cgraph "github.com/aunum/goro/pkg/v1/common/graph"
@@ -549,27 +550,33 @@ func (s *Sequential) Fit(x ValueOr, y g.Value) error {
 }
 
 // FitBatch fits x to y as a batch.
-func (s *Sequential) FitBatch(x ValueOr, y g.Value) error {
-	err := s.yTrainBatch.Set(y)
+func (s *Sequential) FitBatch(x ValueOr, y g.Value) (err error) {
+	err = s.yTrainBatch.Set(y)
 	if err != nil {
-		return err
+		return
 	}
 
 	xVals := ValuesFrom(x)
 	err = s.xTrainBatch.Set(xVals)
 	if err != nil {
-		return err
+		return
 	}
 
+	defer func() {
+		if r := recover(); r != nil {
+			log.Error(string(debug.Stack()))
+			err = fmt.Errorf("recovered from panic in FitBatch: %v", r)
+		}
+	}()
 	err = s.trainBatchVM.RunAll()
 	if err != nil {
-		return err
+		return
 	}
 	// log.Infovb("pred val", s.trainBatchPredVal)
 	grads := g.NodesToValueGrads(s.trainBatchChain.Learnables())
 	s.optimizer.Step(grads)
 	s.trainBatchVM.Reset()
-	return nil
+	return
 }
 
 // Visualize the model by graph name.

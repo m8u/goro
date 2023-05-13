@@ -15,14 +15,14 @@ import (
 
 func main() {
 	// load the train set
-	x, y, err := mnist.Load("train", "./testdata", g.Float32)
+	x, y, err := mnist.Load("train", "/home/m8u/code/goro/examples/mnist/testdata", g.Float32)
 	require.NoError(err)
 
 	exampleSize := x.Shape()[0]
 	log.Infov("exampleSize", exampleSize)
 
 	// load our test set
-	testX, testY, err := mnist.Load("test", "./testdata", g.Float32)
+	testX, testY, err := mnist.Load("test", "/home/m8u/code/goro/examples/mnist/testdata", g.Float32)
 	require.NoError(err)
 
 	log.Infov("x example shape", x.Shape())
@@ -68,6 +68,7 @@ func main() {
 	log.Infov("epochs", epochs)
 	for epoch := 0; epoch < epochs; epoch++ {
 		for batch := 0; batch < batches; batch++ {
+			log.Infov("batch", batch)
 			start := batch * batchSize
 			end := start + batchSize
 			if start >= exampleSize {
