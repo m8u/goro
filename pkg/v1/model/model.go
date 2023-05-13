@@ -3,8 +3,8 @@ package model
 
 import (
 	"fmt"
-	"github.com/aunum/gold/pkg/v1/track"
 	"github.com/aunum/log"
+	"github.com/m8u/gold/pkg/v1/track"
 	cgraph "github.com/m8u/goro/pkg/v1/common/graph"
 	"github.com/m8u/goro/pkg/v1/layer"
 	golog "log"

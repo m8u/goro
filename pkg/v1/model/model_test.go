@@ -6,8 +6,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/aunum/gold/pkg/v1/dense"
 	"github.com/aunum/log"
+	"github.com/m8u/gold/pkg/v1/dense"
 	"github.com/m8u/goro/pkg/v1/layer"
 	. "github.com/m8u/goro/pkg/v1/model"
 
