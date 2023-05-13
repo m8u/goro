@@ -1,4 +1,4 @@
-module github.com/aunum/goro
+module github.com/m8u/goro
 
 go 1.13
 
