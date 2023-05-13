@@ -6,7 +6,7 @@ import (
 	"github.com/aunum/log"
 	"github.com/pkg/errors"
 
-	g "gorgonia.org/gorgonia"
+	g "github.com/m8u/gorgonia"
 	t "gorgonia.org/tensor"
 )
 
@@ -202,7 +202,9 @@ func (l *LinearActivation) Clone() ActivationFn {
 }
 
 // softMax performs softmax on the input. Specifically this is used:
-//		e^(a[i]) / sum((e^(a[i])))
+//
+//	e^(a[i]) / sum((e^(a[i])))
+//
 // For a more numerically stable SoftMax, use StableSoftMax.
 //
 // This is ripped from Gorgonia core and tweaked as there was a bug in it https://github.com/gorgonia/gorgonia/issues/373

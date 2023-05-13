@@ -3,8 +3,8 @@ package graph
 import (
 	"testing"
 
+	g "github.com/m8u/gorgonia"
 	"github.com/stretchr/testify/require"
-	g "gorgonia.org/gorgonia"
 )
 
 func TestVisualize(t *testing.T) {

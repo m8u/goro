@@ -11,8 +11,8 @@ import (
 	"github.com/m8u/goro/pkg/v1/layer"
 	. "github.com/m8u/goro/pkg/v1/model"
 
+	g "github.com/m8u/gorgonia"
 	"github.com/stretchr/testify/require"
-	g "gorgonia.org/gorgonia"
 	"gorgonia.org/tensor"
 )
 

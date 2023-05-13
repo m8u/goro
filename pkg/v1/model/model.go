@@ -11,7 +11,7 @@ import (
 	cgraph "github.com/m8u/goro/pkg/v1/common/graph"
 	"github.com/m8u/goro/pkg/v1/layer"
 
-	g "gorgonia.org/gorgonia"
+	g "github.com/m8u/gorgonia"
 )
 
 // Model is a prediction model.

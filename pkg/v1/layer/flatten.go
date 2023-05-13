@@ -5,7 +5,7 @@ import (
 
 	"github.com/aunum/log"
 
-	g "gorgonia.org/gorgonia"
+	g "github.com/m8u/gorgonia"
 )
 
 // Flatten reshapes the incoming tensor to be flat, preserving the batch.

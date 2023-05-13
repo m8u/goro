@@ -10,7 +10,7 @@ import (
 	"github.com/aunum/log"
 	"github.com/skratchdot/open-golang/open"
 
-	g "gorgonia.org/gorgonia"
+	g "github.com/m8u/gorgonia"
 )
 
 // Visualize the graph using graphviz.

@@ -3,7 +3,7 @@ package layer
 import (
 	"fmt"
 
-	g "gorgonia.org/gorgonia"
+	g "github.com/m8u/gorgonia"
 )
 
 // Dropout implements layer dropout.

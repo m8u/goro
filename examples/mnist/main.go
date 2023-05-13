@@ -8,8 +8,8 @@ import (
 	"github.com/m8u/goro/pkg/v1/layer"
 	m "github.com/m8u/goro/pkg/v1/model"
 
-	g "gorgonia.org/gorgonia"
-	"gorgonia.org/gorgonia/examples/mnist"
+	g "github.com/m8u/gorgonia"
+	"github.com/m8u/gorgonia/examples/mnist"
 	"gorgonia.org/tensor"
 )
 

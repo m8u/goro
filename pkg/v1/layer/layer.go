@@ -2,7 +2,7 @@
 package layer
 
 import (
-	g "gorgonia.org/gorgonia"
+	g "github.com/m8u/gorgonia"
 	t "gorgonia.org/tensor"
 )
 

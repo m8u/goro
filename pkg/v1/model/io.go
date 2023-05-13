@@ -6,7 +6,7 @@ import (
 	"github.com/aunum/log"
 	l "github.com/m8u/goro/pkg/v1/layer"
 
-	g "gorgonia.org/gorgonia"
+	g "github.com/m8u/gorgonia"
 	t "gorgonia.org/tensor"
 )
 
