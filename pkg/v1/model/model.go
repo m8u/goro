@@ -7,9 +7,9 @@ import (
 	"runtime/debug"
 
 	"github.com/aunum/gold/pkg/v1/track"
-	cgraph "github.com/aunum/goro/pkg/v1/common/graph"
-	"github.com/aunum/goro/pkg/v1/layer"
 	"github.com/aunum/log"
+	cgraph "github.com/m8u/goro/pkg/v1/common/graph"
+	"github.com/m8u/goro/pkg/v1/layer"
 
 	g "gorgonia.org/gorgonia"
 )

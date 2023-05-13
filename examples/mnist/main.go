@@ -4,9 +4,9 @@ import (
 	"github.com/aunum/gold/pkg/v1/common/num"
 	"github.com/aunum/gold/pkg/v1/common/require"
 	"github.com/aunum/gold/pkg/v1/dense"
-	"github.com/aunum/goro/pkg/v1/layer"
-	m "github.com/aunum/goro/pkg/v1/model"
 	"github.com/aunum/log"
+	"github.com/m8u/goro/pkg/v1/layer"
+	m "github.com/m8u/goro/pkg/v1/model"
 
 	g "gorgonia.org/gorgonia"
 	"gorgonia.org/gorgonia/examples/mnist"
