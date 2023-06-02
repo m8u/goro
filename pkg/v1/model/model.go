@@ -526,25 +526,25 @@ func (s *Sequential) PredictBatch(x g.Value) (prediction g.Value, err error) {
 }
 
 // Fit x to y.
-func (s *Sequential) Fit(x ValueOr, y g.Value) (err error) {
-	err = s.yTrain.Set(y)
+func (s *Sequential) Fit(x ValueOr, y g.Value) error {
+	err := s.yTrain.Set(y)
 	if err != nil {
-		return
+		return err
 	}
 	xVals := ValuesFrom(x)
 	err = s.xTrain.Set(xVals)
 	if err != nil {
-		return
+		return err
 	}
 
 	err = s.trainVM.RunAll()
 	if err != nil {
-		return
+		return err
 	}
 	grads := g.NodesToValueGrads(s.trainChain.Learnables())
 	s.optimizer.Step(grads)
-	err = s.trainVM.Close()
-	return
+	s.trainVM.Reset()
+	return nil
 }
 
 // FitBatch fits x to y as a batch.
@@ -567,7 +567,7 @@ func (s *Sequential) FitBatch(x ValueOr, y g.Value) (err error) {
 	// log.Infovb("pred val", s.trainBatchPredVal)
 	grads := g.NodesToValueGrads(s.trainBatchChain.Learnables())
 	s.optimizer.Step(grads)
-	err = s.trainBatchVM.Close()
+	s.trainBatchVM.Reset()
 	return
 }
 
