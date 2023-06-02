@@ -666,6 +666,13 @@ func (s *Sequential) SetLearnables(desired g.Nodes) error {
 	return nil
 }
 
+func (s *Sequential) DisposeVMs() {
+	s.trainVM = nil
+	s.trainBatchVM = nil
+	s.onlineVM = nil
+	s.onlineBatchVM = nil
+}
+
 // Opts are optsion for a model
 type Opts struct {
 	opts []Opt
